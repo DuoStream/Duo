@@ -34,6 +34,17 @@ Here's a list of activities undertaken by Duo that might trigger suspicion from 
 
 ## Known issues and workarounds
 
+### Windows Updates potentially breaking Duo
+While it's impossible for me to anticipate how future Windows Updates could affect Duo, past experiences have shown us that this is a definite possibility.  
+  
+The two parts that seem to break most often, are either the termsrv.dll or RdpIdd.dll patches.  
+  
+The termsrv.dll patches are provided by [RdpWrap](https://github.com/sebaxakerhtc/rdpwrap) and can be updated by executing "C:\\Program Files\\RDP Wrapper\\RDP\_CnC.exe" and clicking on "Update INI".  
+  
+The RdpIdd.dll patches are bundled with Duo and can be updated by updating Duo itself.  
+  
+Please uninstall previous Duo versions prior to installing new ones.
+
 ### Global-exclusive applications
 While each user is provided their own dedicated session, it's important to acknowledge that ultimately, you are operating on a single computer, which comes with both its benefits and drawbacks.  
   
