@@ -34,6 +34,20 @@ Here's a list of activities undertaken by Duo that might trigger suspicion from 
 
 ## Known issues and workarounds
 
+### Microsoft accounts not working right
+Microsoft accounts appear as local accounts to most Windows operating system components but fail to authenticate via Network Level Authentication.  
+  
+This poses a problem as that is the authentication method Duo uses to spawn additional sessions.  
+  
+As such it's recommended to create one, or more, dedicated local user accounts for use with Duo.  
+  
+The easiest way to do so is to open an administrative cmd.exe command line and execute the following two commands (with slight adjustments to fit your wanted username and password):
+
+```
+net user "<username>" "<password>" /add /passwordchg:no
+net localgroup administrators "<username>" /add
+```
+
 ### Windows Updates potentially breaking Duo
 While it's impossible for me to anticipate how future Windows Updates could affect Duo, past experiences have shown us that this is a definite possibility.  
   
@@ -68,6 +82,13 @@ For games that don't support Xinput natively, this wrapper can be supplemented w
 Just keep in mind that you'll have to re-start Steam after enabling Steam Input for Xinput.  
   
 Should you have no need for gamepad segregation at all (which is the case if you can guarantee that there will never be more than one gamepad-compatible game running at a time), feel free to disable this feature via the Duo Manager.
+
+## Lifting the NVENC encoder limitations on NVidia GPUs
+The full version of Duo supports hosting multiple instances, but is, ultimately, still limited by however many concurrent hardware encoder sessions your GPU allows.  
+  
+For consumer grade NVidia GPUs this ranges anywhere from 2 to 5 concurrent hardware encoder sessions, but is, ultimately, an artificial limitation in the GPU driver which can be lifted.  
+  
+This requires modifying the driver's nvencodeapi64.dll file [as described here](https://github.com/keylase/nvidia-patch).
 
 ## Downloads
 - [Free version](https://github.com/DuoStream/Duo/raw/main/Duo.exe)
