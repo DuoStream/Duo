@@ -4,24 +4,24 @@ Duo is a multiseat suite based around [RdpWrap](https://github.com/sebaxakerhtc/
   
 Its main purpose is to streamline and improve self-hosted cloud computer setups by providing each user with their own independent session.
 
-## What is multiseating?
+# What is multiseating?
 Multiseating is like having multiple people sit at one computer at the same time, each with their own keyboard, mouse, gamepad and monitor.  
   
 Every single user can use the computer as if they were the sole user of it, without interfering with each other.  
   
 It's like sharing a car but with each person having their own steering wheel and pedals.
 
-## Is Duo available for free?
+# Is Duo available for free?
 Patreon supporters enjoy exclusive benefits, including access to additional sessions and the ability to control refresh rates.  
   
 All remaining features are accessible to all users.
 
-## What are the minimum requirements?
+# What are the minimum requirements?
 Any computer capable of running Windows 11 22H2 or newer should be compatible.  
   
 The overall system requirements will rise or fall with the number of concurrent users though.
 
-## My Antivirus software claims to have found a virus, what's going on?
+# My Antivirus software claims to have found a virus, what's going on?
 Duo performs several actions that Windows typically discourages.  
 Consequently, many antivirus programs may quickly raise concerns.  
   
@@ -32,9 +32,21 @@ Here's a list of activities undertaken by Duo that might trigger suspicion from 
 - It modifies xinput*.dll (on Disk) to segregate gamepad input for each session, preventing interference between them
 - It initiates headless localhost RDP sessions to prompt termsrv.dll to create a new session
 
-## Known issues and workarounds
+# Tips & Tricks
 
-### Microsoft accounts not working right
+## Offloading the encoder workload onto integrated graphics
+Unlike regular builds of Sunshine, which rely on DXGI screen duplication, Duo's implementation is based on shared buffers, which means that one GPU can produce the image, while another GPU can be used to encode the image into a video stream.  
+  
+This grants us the unique opportunity to offload video encoding onto integrated graphics, freeing up resources on our dedicated graphics card, putting the otherwise unused integrated graphics to good use and allowing us to host more instances than we normally could.  
+  
+To move encoder workloads across GPU boundaries set your "Force a Specific Encoder" setting to...
+- "Intel QuickSync" to offload the encoder workload onto the first Intel GPU on your system
+- "AMD AMF/VCE" to offload the encoder workload onto the first AMD GPU on your system
+- "NVIDIA NVENC" to offload the encoder workload onto the first NVidia GPU on your system
+
+# Known issues and workarounds
+
+## Microsoft accounts not working right
 Microsoft accounts appear as local accounts to most Windows operating system components but fail to authenticate via Network Level Authentication.  
   
 This poses a problem as that is the authentication method Duo uses to spawn additional sessions.  
@@ -48,7 +60,7 @@ net user "<username>" "<password>" /add /passwordchg:no
 net localgroup administrators "<username>" /add
 ```
 
-### Windows Updates potentially breaking Duo
+## Windows Updates potentially breaking Duo
 While it's impossible for me to anticipate how future Windows Updates could affect Duo, past experiences have shown us that this is a definite possibility.  
   
 The two parts that seem to break most often, are either the termsrv.dll or RdpIdd.dll patches.  
@@ -59,7 +71,7 @@ The RdpIdd.dll patches are bundled with Duo and can be updated by updating Duo i
   
 Please uninstall previous Duo versions prior to installing new ones.
 
-### Global-exclusive applications
+## Global-exclusive applications
 While each user is provided their own dedicated session, it's important to acknowledge that ultimately, you are operating on a single computer, which comes with both its benefits and drawbacks.  
   
 You'll be sharing common resources such as processing capacity, the registry, storage space, and more.  
@@ -70,7 +82,7 @@ This tool allows you to isolate and sandbox problematic processes, like Steam, i
   
 This, in turn, enables you to initiate multiple instances of such applications, effectively circumventing these artificial restrictions.
 
-### Experimental gamepad segregation support
+## Experimental gamepad segregation support
 While Windows provides internal mechanisms for session-specific mouse & keyboard segregation, there is no such feature for other HID devices like gamepads.  
   
 To work around this limitation, a proof of concept userspace wrapper was developed that creates a virtual set of 4 session-specific Xinput devices.  
@@ -83,13 +95,6 @@ Just keep in mind that you'll have to re-start Steam after enabling Steam Input 
   
 Should you have no need for gamepad segregation at all (which is the case if you can guarantee that there will never be more than one gamepad-compatible game running at a time), feel free to disable this feature via the Duo Manager.
 
-## Lifting the NVENC encoder limitations on NVidia GPUs
-The full version of Duo supports hosting multiple instances, but is, ultimately, still limited by however many concurrent hardware encoder sessions your GPU allows.  
-  
-For consumer grade NVidia GPUs this ranges anywhere from 2 to 5 concurrent hardware encoder sessions, but is, ultimately, an artificial limitation in the GPU driver which can be lifted.  
-  
-This requires modifying the driver's nvencodeapi64.dll file [as described here](https://github.com/keylase/nvidia-patch).
-
-## Downloads
+# Downloads
 - [Free version](https://github.com/DuoStream/Duo/raw/main/Duo.exe)
-- [Full version](https://patreon.com/blackseraph)
+- [Full version](https://www.patreon.com/posts/duo-1-pc-users-89568993)
