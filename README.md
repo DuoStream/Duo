@@ -21,6 +21,11 @@ Any computer capable of running Windows 11 22H2 or newer should be compatible.
   
 The overall system requirements will rise or fall with the number of concurrent users though.
 
+## Additional requirements for gamepad support
+Gamepad support is facilitated through [ViGEmBus](https://github.com/nefarius/ViGEmBus/releases/latest), which creates virtual gamepads, and [HidHide](https://github.com/nefarius/HidHide/releases/latest), which organizes them into their respective sessions.
+
+Both must be installed before using Duo to ensure proper gamepad functionality.
+
 # My Antivirus software claims to have found a virus, what's going on?
 Duo performs several actions that Windows typically discourages.  
 Consequently, many antivirus programs may quickly raise concerns.  
@@ -81,19 +86,6 @@ To address this limitation, it is highly recommended to employ [Sandboxie-Plus](
 This tool allows you to isolate and sandbox problematic processes, like Steam, into their individual segregated environments, making them believe they got the computer all to themselves.  
   
 This, in turn, enables you to initiate multiple instances of such applications, effectively circumventing these artificial restrictions.
-
-## Experimental gamepad segregation support
-While Windows provides internal mechanisms for session-specific mouse & keyboard segregation, there is no such feature for other HID devices like gamepads.  
-  
-To work around this limitation, a proof of concept userspace wrapper was developed that creates a virtual set of 4 session-specific Xinput devices.  
-  
-This wrapper is experimental, doesn't support DirectInput or RawInput (yet), and will trigger newer EAC implementations.  
-  
-For games that don't support Xinput natively, this wrapper can be supplemented with additional wrappers like [Xidi](https://github.com/samuelgr/Xidi/releases), or Steam's built-in Steam Input.  
-  
-Just keep in mind that you'll have to re-start Steam after enabling Steam Input for Xinput.  
-  
-Should you have no need for gamepad segregation at all (which is the case if you can guarantee that there will never be more than one gamepad-compatible game running at a time), feel free to disable this feature via the Duo Manager.
 
 # Downloads
 - [Free version](https://github.com/DuoStream/Duo/raw/main/Duo.exe)
