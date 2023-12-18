@@ -76,6 +76,16 @@ The RdpIdd.dll patches are bundled with Duo and can be updated by updating Duo i
   
 Please uninstall previous Duo versions prior to installing new ones.
 
+## DirectX context errors
+Some applications fail to acquire DirectX contexts, which renders them unplayable in Duo instances.  
+  
+The issue is being investigated and can be worked around by using [DXVK](https://github.com/doitsujin/dxvk) in the meantime.
+
+## Corrupted mouse cursor images
+Changes to the resolution, scaling or refresh rate settings can cause the mouse cursor to become corrupted.  
+  
+The issue is being investigated and can be worked around by changing Windows' mouse cursor theme to anything but the default.
+
 ## Global-exclusive applications
 While each user is provided their own dedicated session, it's important to acknowledge that ultimately, you are operating on a single computer, which comes with both its benefits and drawbacks.  
   
