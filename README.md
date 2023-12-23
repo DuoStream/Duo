@@ -17,7 +17,7 @@ Patreon supporters enjoy exclusive benefits, including access to additional sess
 All remaining features are accessible to all users.
 
 # What are the minimum requirements?
-Any computer capable of running Windows 11 22H2 or newer should be compatible.  
+Any computer capable of running Windows 11 23H2 or newer should be compatible.  
   
 The overall system requirements will rise or fall with the number of concurrent users though.
 
@@ -34,7 +34,6 @@ Here's a list of activities undertaken by Duo that might trigger suspicion from 
 - It adds selected local user accounts to the "Remote Desktop Users" group so they can be used as headless session logon accounts
 - It patches termsrv.dll (in RAM) to enable the possibility of running multiple concurrent active sessions
 - It patches RdpIdd.dll (in RAM) to enable the possibility of capturing uncompressed SwapChain frames
-- It modifies xinput*.dll (on Disk) to segregate gamepad input for each session, preventing interference between them
 - It initiates headless localhost RDP sessions to prompt termsrv.dll to create a new session
 
 # Tips & Tricks
@@ -76,15 +75,12 @@ The RdpIdd.dll patches are bundled with Duo and can be updated by updating Duo i
   
 Please uninstall previous Duo versions prior to installing new ones.
 
-## DirectX context errors
-Some applications fail to acquire DirectX contexts, which renders them unplayable in Duo instances.  
+## Certain DirectX applications may struggle to obtain exclusive full-screen contexts
+This can result in a switch to windowed mode or fully render an application broken in Duo instances.  
   
-The issue is being investigated and can be worked around by using [DXVK](https://github.com/doitsujin/dxvk) in the meantime.
-
-## Corrupted mouse cursor images
-Changes to the resolution, scaling or refresh rate settings can cause the mouse cursor to become corrupted.  
+I am actively investigating this issue.  
   
-The issue is being investigated and can be worked around by changing Windows' mouse cursor theme to anything but the default.
+In the meantime, one can address this issue by either selecting borderless windowed mode (if available) or forcing the application to run in Vulkan through [DXVK](https://github.com/doitsujin/dxvk).
 
 ## Global-exclusive applications
 While each user is provided their own dedicated session, it's important to acknowledge that ultimately, you are operating on a single computer, which comes with both its benefits and drawbacks.  
