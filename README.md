@@ -12,7 +12,7 @@ Every single user can use the computer as if they were the sole user of it, with
 It's like sharing a car but with each person having their own steering wheel and pedals.
 
 # Is Duo available for free?
-Patreon supporters enjoy exclusive benefits, including access to additional sessions and the ability to control refresh rates.  
+Patreon supporters enjoy exclusive benefits, including access to additional sessions, the ability to control refresh rates and HDR support.  
   
 All remaining features are accessible to all users.
 
@@ -33,7 +33,7 @@ Consequently, many antivirus programs may quickly raise concerns.
 Here's a list of activities undertaken by Duo that might trigger suspicion from your antivirus software:
 - It adds selected local user accounts to the "Remote Desktop Users" group so they can be used as headless session logon accounts
 - It patches termsrv.dll (in RAM) to enable the possibility of running multiple concurrent active sessions
-- It patches RdpIdd.dll (in RAM) to enable the possibility of capturing uncompressed SwapChain frames
+- It patches IddCx.dll & RdpIdd.dll (in RAM) to enable the possibility of capturing uncompressed SwapChain frames
 - It initiates headless localhost RDP sessions to prompt termsrv.dll to create a new session
 
 # Tips & Tricks
@@ -48,7 +48,29 @@ To move encoder workloads across GPU boundaries set your "Force a Specific Encod
 - "AMD AMF/VCE" to offload the encoder workload onto the first AMD GPU on your system
 - "NVIDIA NVENC" to offload the encoder workload onto the first NVidia GPU on your system
 
+# Getting HDR running on the new Steam Deck OLED
+**Note: HDR and custom refresh rate support are Patreon supporter benefits and are not available in the free version of Duo.**
+
+1. Install the latest [Moonlight nightly build](https://github.com/FrogTheFrog/com.moonlight_stream.Moonlight) on your Steam Deck OLED.
+2. Add Moonlight as a non-Steam game on your Steam Deck OLED.
+3. **Optional:** Install [Decky](https://github.com/SteamDeckHomebrew/decky-loader) and the [Reshadeck](https://github.com/safijari/Reshadeck) plugin on your Steam Deck OLED.
+4. **Optional:** Save this [corrective shader](https://github.com/DuoStream/Duo/raw/main/Files/SteamOS/ImageAdjustment.fx) into your Deck's **~/.local/share/gamescope/reshade/Shaders** folder and enable it in Reshadeck to fix the Steam Deck OLED's known [black level issue](https://github.com/moonlight-stream/moonlight-qt/issues/1117).
+5. Create a 1280x800@90Hz HDR-enabled instance for your Steam Deck OLED in Duo Manager with a minimum luminance of 0 nits, a full-frame maximum luminance of 1000 nits, and a maximum luminance of 1000 nits, then restart Duo.
+6. Start Moonlight on your Steam Deck OLED in game mode and pair it to your Duo instance by entering the pairing PIN via its Sunshine web admin panel.
+
+## Occasional HDR stream decoding issues on Steam Deck OLED
+Moonlight sometimes has issues decoding HDR-enabled streams on the Steam Deck OLED, which will result in a black screen.  
+  
+Should you run into this issue, reboot your Steam Deck OLED, and everything should be back in working order once again.
+
 # Known issues and workarounds
+
+## HDR support requires a one-time post-install host system reboot to start functioning
+Duo incorporates HDR functionality through Microsoft's new IddCx 1.10 interface, which gets enabled as part of Duo's installation process.  
+  
+However, the Windows feature API necessitates several minutes and a subsequent system reboot to seamlessly transition from the older IddCx 1.9 to the newer IddCx 1.10 interface.  
+  
+Until this transition is completed, all instances with HDR capability will revert to SDR, using the older IddCx 1.9 interface, to maintain functionality.
 
 ## Microsoft accounts not working right
 Microsoft accounts appear as local accounts to most Windows operating system components but fail to authenticate via Network Level Authentication.  
@@ -64,16 +86,10 @@ net user "<username>" "<password>" /add /passwordchg:no
 net localgroup administrators "<username>" /add
 ```
 
-## Windows Updates potentially breaking Duo
-While it's impossible for me to anticipate how future Windows Updates could affect Duo, past experiences have shown us that this is a definite possibility.  
+## Windows Updates breaking RdpWrap (and thus Duo)
+The termsrv.dll patches are provided by [RdpWrap](https://github.com/sebaxakerhtc/rdpwrap) and might need to be manually updated after Microsoft drops a termsrv.dll update.  
   
-The two parts that seem to break most often, are either the termsrv.dll or RdpIdd.dll patches.  
-  
-The termsrv.dll patches are provided by [RdpWrap](https://github.com/sebaxakerhtc/rdpwrap) and can be updated by executing "C:\\Program Files\\RDP Wrapper\\RDP\_CnC.exe" and clicking on "Update INI".  
-  
-The RdpIdd.dll patches are bundled with Duo and can be updated by updating Duo itself.  
-  
-Please uninstall previous Duo versions prior to installing new ones.
+This can be done by executing **C:\\Program Files\\RDP Wrapper\\RDP\_CnC.exe** and clicking on "Update INI".  
 
 ## Certain DirectX applications may struggle to obtain exclusive full-screen contexts
 This can result in a switch to windowed mode or fully render an application broken in Duo instances.  
