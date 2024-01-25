@@ -22,9 +22,11 @@ Any computer capable of running Windows 11 23H2 or newer should be compatible.
 The overall system requirements will rise or fall with the number of concurrent users though.
 
 ## Additional requirements for gamepad support
-Gamepad support is facilitated through [ViGEmBus](https://github.com/nefarius/ViGEmBus/releases/latest), which creates virtual gamepads, and [HidHide](https://github.com/nefarius/HidHide/releases/latest), which organizes them into their respective sessions.
-
-Both must be installed before using Duo to ensure proper gamepad functionality.
+Gamepad support is facilitated through [ViGEmBus](https://github.com/nefarius/ViGEmBus/releases/latest), which must be installed prior to Duo to ensure proper gamepad functionality.  
+  
+Versions prior to 1.2.1 also required [HidHide](https://github.com/nefarius/HidHide/releases/latest), but that is no longer the case.  
+  
+Should you still have HidHide installed, uninstall it, or at the very least wipe its filter table before upgrading to a newer Duo version.
 
 # My Antivirus software claims to have found a virus, what's going on?
 Duo performs several actions that Windows typically discourages.  
