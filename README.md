@@ -40,17 +40,7 @@ Here's a list of activities undertaken by Duo that might trigger suspicion from 
 
 # Tips & Tricks
 
-## Offloading the encoder workload onto integrated graphics
-Unlike regular builds of Sunshine, which rely on DXGI screen duplication, Duo's implementation is based on shared buffers, which means that one GPU can produce the image, while another GPU can be used to encode the image into a video stream.  
-  
-This grants us the unique opportunity to offload video encoding onto integrated graphics, freeing up resources on our dedicated graphics card, putting the otherwise unused integrated graphics to good use and allowing us to host more instances than we normally could.  
-  
-To move encoder workloads across GPU boundaries set your "Force a Specific Encoder" setting to...
-- "Intel QuickSync" to offload the encoder workload onto the first Intel GPU on your system
-- "AMD AMF/VCE" to offload the encoder workload onto the first AMD GPU on your system
-- "NVIDIA NVENC" to offload the encoder workload onto the first NVidia GPU on your system
-
-# Getting HDR running on the new Steam Deck OLED
+## Getting HDR running on the new Steam Deck OLED
 **Note: HDR and custom refresh rate support are Patreon supporter benefits and are not available in the free version of Duo.**
 
 1. Install the latest [Moonlight nightly build](https://github.com/FrogTheFrog/com.moonlight_stream.Moonlight) on your Steam Deck OLED.
@@ -60,11 +50,6 @@ To move encoder workloads across GPU boundaries set your "Force a Specific Encod
 5. Create a 1280x800@90Hz HDR-enabled instance for your Steam Deck OLED in Duo Manager with a minimum luminance of 0 nits, a full-frame maximum luminance of 1000 nits, and a maximum luminance of 1000 nits, then restart Duo.
 6. Start Moonlight on your Steam Deck OLED in game mode and pair it to your Duo instance by entering the pairing PIN via its Sunshine web admin panel.
 
-## Occasional HDR stream decoding issues on Steam Deck OLED
-Moonlight sometimes has issues decoding HDR-enabled streams on the Steam Deck OLED, which will result in a black screen.  
-  
-Should you run into this issue, reboot your Steam Deck OLED, and everything should be back in working order once again.
-
 # Known issues and workarounds
 
 ## HDR support requires a one-time post-install host system reboot to start functioning
@@ -73,6 +58,11 @@ Duo incorporates HDR functionality through Microsoft's new IddCx 1.10 interface,
 However, the Windows feature API necessitates several minutes and a subsequent system reboot to seamlessly transition from the older IddCx 1.9 to the newer IddCx 1.10 interface.  
   
 Until this transition is completed, all instances with HDR capability will revert to SDR, using the older IddCx 1.9 interface, to maintain functionality.
+
+## Occasional HDR stream decoding issues on Steam Deck OLED
+Moonlight sometimes has issues decoding HDR-enabled streams on the Steam Deck OLED, which will result in a black screen.  
+  
+Should you run into this issue, reboot your Steam Deck OLED, and everything should be back in working order once again.
 
 ## Microsoft accounts not working right
 Microsoft accounts appear as local accounts to most Windows operating system components but fail to authenticate via Network Level Authentication.  
