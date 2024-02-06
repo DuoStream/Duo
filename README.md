@@ -48,7 +48,7 @@ Here's a list of activities undertaken by Duo that might trigger suspicion from 
 3. **Optional:** Install [Decky](https://github.com/SteamDeckHomebrew/decky-loader) and the [Reshadeck](https://github.com/safijari/Reshadeck) plugin on your Steam Deck OLED.
 4. **Optional:** Save this [corrective shader](https://github.com/DuoStream/Duo/raw/main/Files/SteamOS/ImageAdjustment.fx) into your Deck's **~/.local/share/gamescope/reshade/Shaders** folder and enable it in Reshadeck to fix the Steam Deck OLED's known [black level issue](https://github.com/moonlight-stream/moonlight-qt/issues/1117).
 5. Create a 1280x800@90Hz HDR-enabled instance for your Steam Deck OLED in Duo Manager with a minimum luminance of 0 nits, a full-frame maximum luminance of 1000 nits, and a maximum luminance of 1000 nits, then restart Duo.
-6. Start Moonlight on your Steam Deck OLED in game mode and pair it to your Duo instance by entering the pairing PIN via its Sunshine web admin panel.
+6. Start Moonlight on your Steam Deck OLED in game mode, enable HDR in the settings, and pair it to your Duo instance by entering the pairing PIN via its Sunshine web admin panel.
 
 # Known issues and workarounds
 
