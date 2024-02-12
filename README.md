@@ -2,7 +2,9 @@
 ![Legend](Images/Legend.png)
 Duo is a multiseat suite based around [RdpWrap](https://github.com/sebaxakerhtc/rdpwrap), [Sunshine](https://github.com/DuoStream/Sunshine), [Moonlight](https://github.com/moonlight-stream), and several driver & library patches.  
   
-Its main purpose is to streamline and improve self-hosted cloud computer setups by providing each user with their own independent session.
+Its main purpose is to streamline and improve self-hosted cloud computer setups by providing each user with their own independent session.  
+  
+Each session's resolution, refresh rate, scaling and dynamic range are controlled directly via [Moonlight](https://github.com/moonlight-stream).
 
 # What is multiseating?
 Multiseating is like having multiple people sit at one computer at the same time, each with their own keyboard, mouse, gamepad and monitor.  
@@ -12,7 +14,7 @@ Every single user can use the computer as if they were the sole user of it, with
 It's like sharing a car but with each person having their own steering wheel and pedals.
 
 # Is Duo available for free?
-Patreon supporters enjoy exclusive benefits, including access to additional sessions, the ability to control refresh rates and HDR support.  
+Patreon supporters enjoy exclusive benefits, including access to additional sessions, an increased maximum refresh rate, and HDR support.  
   
 All remaining features are accessible to all users.
 
@@ -47,7 +49,7 @@ Here's a list of activities undertaken by Duo that might trigger suspicion from 
 2. Add Moonlight as a non-Steam game on your Steam Deck OLED.
 3. **Optional:** Install [Decky](https://github.com/SteamDeckHomebrew/decky-loader) and the [Reshadeck](https://github.com/safijari/Reshadeck) plugin on your Steam Deck OLED.
 4. **Optional:** Save this [corrective shader](https://github.com/DuoStream/Duo/raw/main/Files/SteamOS/ImageAdjustment.fx) into your Deck's **~/.local/share/gamescope/reshade/Shaders** folder and enable it in Reshadeck to fix the Steam Deck OLED's known [black level issue](https://github.com/moonlight-stream/moonlight-qt/issues/1117).
-5. Create a 1280x800@90Hz HDR-enabled instance for your Steam Deck OLED in Duo Manager with a minimum luminance of 0 nits, a full-frame maximum luminance of 1000 nits, and a maximum luminance of 1000 nits, then restart Duo.
+5. Create a new instance in Duo Manager with a minimum luminance of 0 nits, a full-frame maximum luminance of 1000 nits, and a maximum luminance of 1000 nits, then restart Duo.
 6. Start Moonlight on your Steam Deck OLED in game mode, enable HDR in the settings, and pair it to your Duo instance by entering the pairing PIN via its Sunshine web admin panel.
 
 # Known issues and workarounds
