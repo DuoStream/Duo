@@ -19,7 +19,9 @@ Patreon supporters enjoy exclusive benefits, including access to additional sess
 All remaining features are accessible to all users.
 
 # What are the minimum requirements?
-Any computer capable of running Windows 11 23H2 or newer should be compatible.  
+Any computer capable of running Windows 10 22H2 or newer should be compatible.  
+  
+If you wish to make use of Duo's HDR support, you'll need Windows 11 23H2 or newer.  
   
 The overall system requirements will rise or fall with the number of concurrent users though.
 
@@ -45,6 +47,8 @@ Here's a list of activities undertaken by Duo that might trigger suspicion from 
 ## Getting HDR running on the new Steam Deck OLED
 **Note: HDR and custom refresh rate support are Patreon supporter benefits and are not available in the free version of Duo.**
 
+**OS Requirements: Windows 11 23H2+ is required to make use of Duo's HDR support.**
+
 1. Install the latest [Moonlight nightly build](https://github.com/FrogTheFrog/com.moonlight_stream.Moonlight) on your Steam Deck OLED.
 2. Add Moonlight as a non-Steam game on your Steam Deck OLED.
 3. **Optional:** Install [Decky](https://github.com/SteamDeckHomebrew/decky-loader) and the [Reshadeck](https://github.com/safijari/Reshadeck) plugin on your Steam Deck OLED.
@@ -53,6 +57,13 @@ Here's a list of activities undertaken by Duo that might trigger suspicion from 
 6. Start Moonlight on your Steam Deck OLED in game mode, enable HDR in the settings, and pair it to your Duo instance by entering the pairing PIN via its Sunshine web admin panel.
 
 # Known issues and workarounds
+
+## Windows 10 host instances won't auto-adjust their display configuration
+This is a known IddCx remote driver limitation on Windows 10.  
+  
+You can either upgrade to Windows 11 23H2+, which doesn't have this issue, or connect to your instance via Moonlight, and **Sign Out** of your user profile via the instance's Windows start menu.  
+  
+Doing so will restart the IddCx remote driver, which, in turn, will reset the instance's display configuration to match that of the last connected Moonlight client.
 
 ## HDR support requires a one-time post-install host system reboot to start functioning
 Duo incorporates HDR functionality through Microsoft's new IddCx 1.10 interface, which gets enabled as part of Duo's installation process.  
@@ -92,14 +103,29 @@ I am actively investigating this issue.
   
 In the meantime, one can address this issue by either selecting borderless windowed mode (if available) or forcing the application to run in Vulkan through [DXVK](https://github.com/doitsujin/dxvk).
 
-## Global-exclusive applications
+## Steam refuses to run multiple instances of itself at the same time
+Steam, by default, won't allow you to run multiple instances of it.  
+  
+This can be worked around quite easily however by creating instance-specific **Steam.bat** starter files.
+
+1. Open **Notepad**.
+2. Paste the following text into it, and swap all instances of **InstanceName** with your Duo instance name.
+```
+set VPROJECT=steammulti
+start "InstanceName" "C:\Program Files (x86)\Steam\steam.exe" -master_ipc_name_override -userchooser InstanceName
+```
+3. Save the file as **Steam-InstanceName.bat**, and make sure to choose **All Files** as the file-type.
+
+From this point forward, execute **Steam-InstanceName.bat** whenever you wish to use Steam.
+
+## Running other global-exclusive applications
 While each user is provided their own dedicated session, it's important to acknowledge that ultimately, you are operating on a single computer, which comes with both its benefits and drawbacks.  
   
 You'll be sharing common resources such as processing capacity, the registry, storage space, and more.  
-This can pose a problem with system-global-exclusive processes, like Steam, that claim to not support running multiple instances on a single computer.  
+This can pose a problem with system-global-exclusive processes, that claim to not support running multiple instances on a single computer.  
   
 To address this limitation, it is highly recommended to employ [Sandboxie-Plus](https://github.com/sandboxie-plus/Sandboxie/releases/latest).  
-This tool allows you to isolate and sandbox problematic processes, like Steam, into their individual segregated environments, making them believe they got the computer all to themselves.  
+This tool allows you to isolate and sandbox problematic processes into their individual segregated environments, making them believe they got the computer all to themselves.  
   
 This, in turn, enables you to initiate multiple instances of such applications, effectively circumventing these artificial restrictions.
 
