@@ -19,7 +19,7 @@ Patreon supporters enjoy exclusive benefits, including access to additional sess
 All remaining features are accessible to all users.
 
 # What are the minimum requirements?
-Any computer capable of running Windows 10 22H2 or newer should be compatible.  
+Any computer capable of running Windows 10 21H2 or newer should be compatible.  
   
 If you wish to make use of Duo's HDR support, you'll need Windows 11 23H2 or newer.  
   
