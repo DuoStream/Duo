@@ -103,22 +103,7 @@ I am actively investigating this issue.
   
 In the meantime, one can address this issue by either selecting borderless windowed mode (if available) or forcing the application to run in Vulkan through [DXVK](https://github.com/doitsujin/dxvk).
 
-## Steam refuses to run multiple instances of itself at the same time
-Steam, by default, won't allow you to run multiple instances of it.  
-  
-This can be worked around quite easily however by creating instance-specific **Steam.bat** starter files.
-
-1. Open **Notepad**.
-2. Paste the following text into it, and swap all instances of **InstanceName** with your Duo instance name.
-```
-set VPROJECT=steammulti
-start "InstanceName" "C:\Program Files (x86)\Steam\steam.exe" -master_ipc_name_override -userchooser InstanceName
-```
-3. Save the file as **Steam-InstanceName.bat**, and make sure to choose **All Files** as the file-type.
-
-From this point forward, execute **Steam-InstanceName.bat** whenever you wish to use Steam.
-
-## Running other global-exclusive applications
+## Running global-exclusive applications
 While each user is provided their own dedicated session, it's important to acknowledge that ultimately, you are operating on a single computer, which comes with both its benefits and drawbacks.  
   
 You'll be sharing common resources such as processing capacity, the registry, storage space, and more.  
