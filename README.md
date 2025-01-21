@@ -21,7 +21,7 @@ If you've ever operated a GeForce Experience GameStream or Sunshine host, you'll
 * Supports refresh rates up to 500Hz (limited only by what your hardware encoder can handle)
 * Supports immediate display configuration changes (on Windows 11 23H2 or newer)
 * Supports HDR (on Windows 11 23H2 or newer)
-* Supports sandboxed instances (on Windows 11 23H2 or newer)
+* Supports sandboxed instances with automatic Steam & Epic Games passthrough (on Windows 11 23H2 or newer)
 
 _Patreon versions can be upgraded with GitHub versions without losing their benefits, essentially making them a one-time $10 purchase if you want them to be._
 
