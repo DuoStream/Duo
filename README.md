@@ -10,20 +10,23 @@ If you've ever operated a GeForce Experience GameStream or Sunshine host, you'll
 
 **Duo** does away with all of these issues by giving each user their own independent Desktop, essentially allowing multiple people to play games on a single computer at the same time without getting in each other's way.
 
-## Downloads
-### [GitHub version](https://github.com/DuoStream/Duo/releases/latest)
+## Base features
 * Allows you to run one additional remote session (in addition to the host's physical session)
 * Supports refresh rates up to 30Hz
 * Supports immediate display configuration changes (on Windows 11 23H2 or newer)
+* Supports multiple Steam instances
 
-### [Patreon version](https://www.patreon.com/posts/duo-1-pc-users-89568993)
+## Patreon benefits
+The following benefits can be unlocked by logging in with a Patreon account that has contributed a total of $10 or more to [my campaign](https://patreon.com/blackseraph) over its lifetime:
 * Allows you to run as many remote sessions as your hardware can handle (in addition to the host's physical session)
 * Supports refresh rates up to 500Hz (limited only by what your hardware encoder can handle)
 * Supports immediate display configuration changes (on Windows 11 23H2 or newer)
 * Supports HDR (on Windows 11 23H2 or newer)
 * Supports sandboxed instances with automatic Steam & Epic Games passthrough (on Windows 11 23H2 or newer)
 
-_Patreon versions can be upgraded with GitHub versions without losing their benefits, essentially making them a one-time $10 purchase if you want them to be._
+## Download Duo
+* [From GitHub](https://github.com/DuoStream/Duo/releases/latest)
+* [From Patreon](https://www.patreon.com/posts/duo-1-pc-users-89568993)
 
 ## Getting started with Duo
 ### [Setup Guide](https://github.com/DuoStream/Duo/wiki/Setup-Guide)
