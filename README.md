@@ -11,18 +11,16 @@ If you've ever operated a GeForce Experience GameStream or Sunshine host, you'll
 **Duo** does away with all of these issues by giving each user their own independent Desktop, essentially allowing multiple people to play games on a single computer at the same time without getting in each other's way.
 
 ## Base features
-* Allows you to run one additional remote session (in addition to the host's physical session)
-* Supports refresh rates up to 30Hz
-* Supports immediate display configuration changes (on Windows 11 23H2 or newer)
+* One free Duo instance (in addition to the host's physical session, capped at 30Hz)
+* Automatic display adjustments based on the Moonlight client's settings (on Windows 11 23H2 or newer)
 * Supports multiple Steam instances
 
 ## Patreon benefits
 The following benefits can be unlocked by logging in with a Patreon account that has contributed a total of $10 or more to [my campaign](https://patreon.com/blackseraph) over its lifetime:
-* Allows you to run as many remote sessions as your hardware can handle (in addition to the host's physical session)
-* Supports refresh rates up to 500Hz (limited only by what your hardware encoder can handle)
-* Supports immediate display configuration changes (on Windows 11 23H2 or newer)
-* Supports HDR (on Windows 11 23H2 or newer)
-* Supports sandboxed instances with automatic Steam & Epic Games passthrough (on Windows 11 23H2 or newer)
+* Allows you to run as many Duo instances as your hardware can handle (in addition to the host's physical session)
+* Unlocks refresh rates up to 500Hz (limited only by what your hardware encoder can handle)
+* Unlocks HDR support (on Windows 11 23H2 or newer)
+* Unlocks Sandbox support with automatic Steam & Epic Games passthrough (on Windows 11 23H2 or newer)
 
 ## Download Duo
 * [From GitHub](https://github.com/DuoStream/Duo/releases/latest)
