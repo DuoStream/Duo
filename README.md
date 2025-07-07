@@ -13,14 +13,15 @@ If you've ever operated a GeForce Experience GameStream or Sunshine host, you'll
 ## Base features
 * One free Duo instance (in addition to the host's physical session, capped at 30Hz)
 * Automatic display adjustments based on the Moonlight client's settings (on Windows 11 23H2 or newer)
-* Supports multiple Steam instances
+* Built-in support for user-configurable super-sampling
+* Built-in support for multiple Steam instances
 
 ## Patreon benefits
 The following benefits can be unlocked by logging in with a Patreon account that has contributed a total of $10 or more to [my campaign](https://patreon.com/blackseraph) over its lifetime:
 * Allows you to run as many Duo instances as your hardware can handle (in addition to the host's physical session)
 * Unlocks refresh rates up to 500Hz (limited only by what your hardware encoder can handle)
 * Unlocks HDR support (on Windows 11 23H2 or newer)
-* Unlocks Sandbox support with automatic Steam & Epic Games passthrough (on Windows 11 23H2 or newer)
+* Unlocks Sandbox support (on Windows 11 23H2 or newer)
 
 ## Download Duo
 * [From GitHub](https://github.com/DuoStream/Duo/releases/latest)
@@ -32,4 +33,4 @@ A step-by-step guide on how to get started with Duo.
 ### [Troubleshooting](https://github.com/DuoStream/Duo/wiki/Troubleshooting)
 A list of frequently asked-about issues and how to resolve them.
 ### [Known Issues](https://github.com/DuoStream/Duo/wiki/Known-Issues)
-A list of known issues that we really can't do all too much about due to technical limitations.
+A list of known issues that we really can't do all too much about due to technical or legal limitations.
