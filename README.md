@@ -23,7 +23,7 @@ The following benefits can be unlocked by logging in with a Patreon account that
 * Unlocks HDR support (on Windows 11 23H2 or newer)
 * Unlocks Sandbox support (**temporarily unavailable**)
 
-## Download Duo
+## Download Duo (Latest: v1.5.6)
 * [From GitHub](https://github.com/DuoStream/Duo/releases/latest)
 * [From Patreon](https://www.patreon.com/posts/duo-1-pc-users-89568993)
 
