@@ -16,14 +16,14 @@ If you've ever operated a GeForce Experience GameStream or Sunshine host, you'll
 * Built-in support for user-configurable super-sampling
 * Built-in support for multiple Steam instances
 
-## Patreon benefits
-The following benefits can be unlocked by logging in with a Patreon account that has contributed a total of $10 or more to [my campaign](https://patreon.com/blackseraph) over its lifetime:
+## Supporter benefits
+The following benefits can be unlocked by logging in with a Patreon account that has contributed a total of $10 or more to [my campaign](https://patreon.com/blackseraph) over its lifetime or a Ko-Fi account with enabled [Duo Supporter Benefits](https://ko-fi.com/s/41d9781cb3):
 * Allows you to run as many Duo instances as your hardware can handle (in addition to the host's physical session)
 * Unlocks refresh rates up to 500Hz (limited only by what your hardware encoder can handle)
 * Unlocks HDR support (on Windows 11 23H2 or newer)
 * Unlocks Sandbox support (**temporarily unavailable**)
 
-## Download Duo (Latest: v1.5.7)
+## Download Duo (Latest: v1.5.8)
 * [From GitHub](https://github.com/DuoStream/Duo/releases/latest)
 * [From Patreon](https://www.patreon.com/posts/duo-1-pc-users-89568993)
 
